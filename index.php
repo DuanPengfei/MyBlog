@@ -2,11 +2,12 @@
 	session_start();    //开启 session
 	include('./conn/conn.class.php');    //连接数据库
 	include('./head.php');    //引入页面头部，显示导航信息
-	include('./func/getFilename.class.php');    //获取当前文件名
+	include('./func/getFilename.class.php');    //获取文件名
 ?>
 
 <div name="sidebar">
 	<?php
+		$filename = getFilename($_SERVER['PHP_SELF']);    //获取当前文件名
 		$sql = 'SELECT * FROM article ORDER BY id DESC LIMIT 5';
 		$query = mysqli_query($conn, $sql);
 		if($query !== false) {
