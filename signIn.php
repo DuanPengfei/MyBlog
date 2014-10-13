@@ -12,7 +12,7 @@
 		}
 	}
 	
-	if($_POST['id'] == 'DuanPengfei' && md5($_POST['pw']) == 'aac7683e575dea01c7d89090ea82dfcd') {
+	if($_POST['id'] == 'DuanPengfei' && md5($_POST['pw']) == '95360ed1148937efa976995ad778d76f') {
 		$_SESSION['username'] = $_POST['id'];
 	}
 	

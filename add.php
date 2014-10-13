@@ -7,25 +7,24 @@
 		header('Location: ./error.php');
 	}
 	else {
-		$filename = getFilename($_SERVER['HTTP_REFERER']);
-		if($filename == 'admin.php') {
-			$id = time();
-			$title = $_POST['title'];
-			$content = $_POST['content'];
-			//$author = $_POST['author'];
-			$category = $_POST['category'];
+		//echo 'worked';
+		$id = time();
+		$title = $_POST['title'];
+		$content = $_POST['content'];
+		//$author = $_POST['author'];
+		$category = $_POST['category'];
 
-			if(isset($_POST['submit'])) {
-				$sql = "INSERT INTO article (id, title, content, author, category) VALUES ($id, '$title', '$content', 'DuanPengfei', '$category')";
-				//echo $sql;
-				$query = mysqli_query($conn, $sql);
-				if($query !== false) {
-					echo '文章添加成功';
-				}
-				else {
-					echo '文章添加失败';
-				}
+		if(isset($_POST['submit'])) {
+			$sql = "INSERT INTO article (id, title, content, author, category) VALUES ($id, '$title', '$content', 'DuanPengfei', '$category')";
+			//echo $sql;
+			$query = mysqli_query($conn, $sql);
+			if($query !== false) {
+				echo '文章添加成功';
 			}
+			else {
+				echo '文章添加失败';
+			}
+		}
 ?>
 <meta charset="utf8" />
 <form action="" method="post">
@@ -35,6 +34,5 @@
 	<input type="submit" name="submit" value="添加文章" />
 </form>
 <?php
-		}
 	}
 ?>

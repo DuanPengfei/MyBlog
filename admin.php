@@ -12,7 +12,7 @@
 		//header('Location: ./signIn.php');
 		//echo '<script>window.location.replace("target.aspx");</script>';
 ?>
-请先<a href="./signIn.php">登录</a>
+	<a href="./signIn.php">请先登录</a>
 <?php
 	}
 ?>

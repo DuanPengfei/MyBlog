@@ -24,9 +24,28 @@
 			if($query !== false) {
 				while($result = mysqli_fetch_array($query)) {
 					echo '<h3>' . $result['title'] . '</h3>';
-					echo $result['content'];
+					echo '<p>' . $result['content'] . '</p>';
 				}
 			}
+			echo '<hr />';
+			
+			$sql = 'SELECT * FROM comment WHERE article_id = ' . $_GET['id'];
+			$query = mysqli_query($conn, $sql);
+			if($query !== false) {
+				while($result = mysqli_fetch_array($query)) {
+					echo '<p>' . $result['content'] . '</p>';
+				}
+			}
+			echo '<hr />';
+			
+?>
+<meta charset="utf8" />
+<form action="comment.php" method="post">
+	Content:<textarea name="content"></textarea><br />
+	<input type="hidden" name="article_id" value="<?php echo $_GET['id'] ?>" />
+	<input type="submit" name="submit" value="发表评论" />
+</form>
+<?php
 		}
 
 		mysqli_close($conn);
